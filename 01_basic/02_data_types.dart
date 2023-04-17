@@ -5,12 +5,16 @@ void main(List<String> args) {
   // =========================== Tipos de datos básicos ========================
   // ==== datos numéricos ======
   int age = 24;
+  print('Tipo de dato int: $age');
   double height = 1.80;
-  num weight = 80; // puede representar enteros o decimales
+  print('Tipo de dato double: $height');
+  num weight = 80;
+  print('Tipo de dato num: $weight'); // puede representar enteros o decimales
 
   // ==== datos booleanos ======
   bool isMan = true;
   bool isWoman = !isMan;
+  print('Tipo de dato booleano: $isWoman');
 
   // ==== datos de cadena de texto ======
   String name = "Franz";
@@ -21,6 +25,7 @@ void main(List<String> args) {
     ${name + ' ' + lastname}
     $lastname2
   ''';
+  print('Cadena de texto multilinea $multiline');
 
   // =========================== Tipos de datos compuestos ======================
   // ==== Listas ======
