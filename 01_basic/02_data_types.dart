@@ -58,4 +58,7 @@ void main(List<String> args) {
   // Manera sencilla para crear mapa
   Map<String, dynamic> capitan = new Map();
   capitan.addAll({'name': 'Steve', 'power': 'Super Fuerza', 'level': 5000});
+
+  // Iterable
+  print('Iterable ${villains.reversed}');
 }
