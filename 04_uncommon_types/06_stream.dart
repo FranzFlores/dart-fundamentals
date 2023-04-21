@@ -19,5 +19,18 @@ void main(List<String> args) {
 
   streamController.sink.close();
 
+  // escuchar el stream
+  emitNumbers().listen((value) {
+    print('Valor del Stream: $value');
+  });
+
   print('Fin del main');
+}
+
+// método periodic
+Stream<int> emitNumbers() {
+  return Stream.periodic(const Duration(seconds: 1), (value) {
+    print('Valor: $value');
+    return value;
+  }).take(5);
 }
