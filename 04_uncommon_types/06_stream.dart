@@ -24,6 +24,11 @@ void main(List<String> args) {
     print('Valor del Stream: $value');
   });
 
+  // escuchar el stream
+  emitNumbersControl().listen((value) {
+    print('Valor control: $value');
+  });
+
   print('Fin del main');
 }
 
@@ -33,4 +38,14 @@ Stream<int> emitNumbers() {
     print('Valor: $value');
     return value;
   }).take(5);
+}
+
+// Emisiones controladas
+Stream emitNumbersControl() async* {
+  final valuesToEmit = [1, 2, 3, 4, 5];
+  for (var i in valuesToEmit) {
+    await Future.delayed(const Duration(seconds: 1));
+    // brinda el valor
+    yield i;
+  }
 }
