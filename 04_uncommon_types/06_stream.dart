@@ -19,5 +19,33 @@ void main(List<String> args) {
 
   streamController.sink.close();
 
+  // escuchar el stream
+  emitNumbers().listen((value) {
+    print('Valor del Stream: $value');
+  });
+
+  // escuchar el stream
+  emitNumbersControl().listen((value) {
+    print('Valor control: $value');
+  });
+
   print('Fin del main');
+}
+
+// método periodic
+Stream<int> emitNumbers() {
+  return Stream.periodic(const Duration(seconds: 1), (value) {
+    print('Valor: $value');
+    return value;
+  }).take(5);
+}
+
+// Emisiones controladas
+Stream emitNumbersControl() async* {
+  final valuesToEmit = [1, 2, 3, 4, 5];
+  for (var i in valuesToEmit) {
+    await Future.delayed(const Duration(seconds: 1));
+    // brinda el valor
+    yield i;
+  }
 }
